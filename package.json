@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jcaraujojc/tabuada/issues"
   },
-  "homepage": "https://github.com/jcaraujojc/tabuada#readme"
+  "homepage": "https://github.com/jcaraujojc/tabuada#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
