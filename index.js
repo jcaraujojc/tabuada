@@ -1,7 +1,7 @@
 import express from 'express';
 
 const host = '0.0.0.0';
-const porta = 4000;
+const porta = 3000;
 
 const app = express();
 
@@ -99,7 +99,7 @@ function gerarTabuada(requisicao, resposta){
         for(let i = 0; i < sequencia; i++)
         {
             const resultado = numero * i;
-            resposta.write('<h1> ' + numero + '  ' + i + ' = ' + resultado + '</h1>');
+            resposta.write('<h1> ' + numero + ' x ' + i + ' = ' + resultado + '</h1>');
             numero += 1;
         }
     }
