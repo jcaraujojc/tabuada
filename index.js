@@ -99,7 +99,7 @@ function gerarTabuada(requisicao, resposta){
         for(let i = 0; i < sequencia; i++)
         {
             const resultado = numero * i;
-            resposta.write('<h1> ' + numero + ' x ' + i + ' = ' + resultado + '</h1>');
+            resposta.write('<h1> ' + numero + '  ' + i + ' = ' + resultado + '</h1>');
             numero += 1;
         }
     }
