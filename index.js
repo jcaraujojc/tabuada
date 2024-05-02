@@ -78,10 +78,42 @@ function converterCelsiusFahrenheit(requisicao, resposta)
     resposta.write('</html>');
     resposta.end();
 }
-
+function gerarTabuada(requisicao, resposta){
+    let numero = requisicao.query.numero;
+    let sequencia = requisicao.query.sequencia;
+    if(!sequencia)
+    {
+        sequencia = 10;
+    }
+    resposta.write('<!DOCTYPE html>');
+    resposta.write('<html>');
+    resposta.write('<head>');
+    resposta.write('<meta charset="utf-8">');
+    resposta.write('<title>Tabuada</title>');
+    resposta.write('</head>');
+    resposta.write('<body>');
+    if(numero)
+    {
+        sequencia = parseInt(sequencia);
+        numero = parseInt(numero);
+        for(let i = 0; i < sequencia; i++)
+        {
+            const resultado = numero * i;
+            resposta.write('<h1> ' + numero + ' x ' + i + ' = ' + resultado + '</h1>');
+            numero += 1;
+        }
+    }
+    else{
+        resposta.write('<h1> Informe o parametro numero na url: http://localhost:3000/tabuada?numero=0</h1>');
+    }
+    resposta.write('</body>');
+    resposta.write('</html>');
+    resposta.end();
+}
 app.get("/", retornaPaginaInicial);
 app.get("/dinheiro", enviarDinheiro);
 app.get("/conversor", converterCelsiusFahrenheit);
+app.get("/tabuada", gerarTabuada);
 
 app.listen(porta, host, ()  => {
     console.log("Servidor está executando em http://" + host + ":" + porta);
